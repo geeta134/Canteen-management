@@ -1,0 +1,65 @@
+<center><h1><span class="badge bg-secondary">All Menu Items</span></h1>
+</center> <br>
+
+<%= render 'search_form.html.erb' %> <br>
+  <% @menus.each do |menu| %>
+   <div class="card text-bg-dark" style="width: 55rem;">
+
+   <%#= image_tag "pavbhaji.jpeg", height: 300 %> <br>
+  <div class="card-img-overlay">
+  </div>
+  <center>
+      <%#= post.id %>
+      <%#= image_tag "pavbhaji.jpg", height: 320, width: 1275 %>
+      <%= image_tag menu.main_image  if menu.main_image.attached? %>
+      <h4>Name: <%= menu.food_name %></h4>
+      <h4>Price: <%= menu.price %></h4>
+
+      
+    </div> </center>
+
+    <%#= button_to 'Delete item',  user_menu_path(current_user.id,id: menu.id), method: :delete %> <br>
+
+    <%#= button_to "Delete Item",      user_card1_menu_path(current_user.id, current_user.card1.id,menu.id), method: :delete, class: "btn btn-danger" %>
+     <%# debugger %>
+      <%#= render 'cart1s/new', :remote => true %>
+
+
+     <% if current_user.card1.present? %>
+
+
+      
+
+      <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+      <button type="button" class="btn btn-danger"><%= link_to "Place Order",    new_user_menu_order_path(menu_id: menu.id) %> <br> </button> <br>
+
+
+      <button type="button" class="btn btn-danger"><%= link_to "Add to Cart",  new_user_card1_menu_cart1_path(current_user,current_user.card1.id,menu_id: menu.id) %> </button>
+
+      <button type="button" class="btn btn-danger"><%= link_to "My Cart",    user_menu_cart1s_path(current_user,menu_id: menu.id) %> </button>
+
+    </div> <br> <br>
+
+
+    <% else %>
+
+
+     <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+      <button type="button" class="btn btn-danger"><%= link_to "Place Order",    new_user_menu_order_path(menu_id: menu.id) %> <br> </button> <br>
+
+      <button type="button" class="btn btn-danger"><%= link_to "Add to Cart",     new_user_card1_menu_cart1_path(current_user,current_user.card1.id,menu_id: menu.id) %> </button>
+
+      <button type="button" class="btn btn-danger"><%= link_to "My Cart",    user_menu_cart1s_path(current_user,menu_id: menu.id) %> </button>
+
+
+
+
+      <%#= menu.itemcount.count %> 
+
+
+      <% end %>
+
+      <% end %>
+
+      <%#= link_to "Place Order",    new_user_menu_order_path(@menus) %>
+

@@ -1,0 +1,14 @@
+<%= search_form_for @q, url: user_menus_path do |f| %>
+
+<%#= f.label :food_name %>
+<%#= f.search_field :food_name_cont %>
+
+<%= f.search_field :food_name_cont %>
+
+<button type="button" class="btn btn-primary"><%= f.submit "search" %> </button>
+
+  
+
+<% end %>
+
+

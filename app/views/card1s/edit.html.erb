@@ -1,0 +1,18 @@
+<h2>Update your balance:</h2>
+<%= form_with model: @card1, url: user_card1_path, method: :patch ,  local: true do |f| %>
+
+  
+  <p>
+    <%= f.label :amount %><br>
+    <%= f.number_field :amount %>
+  </p>
+
+
+
+
+
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

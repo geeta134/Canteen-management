@@ -1,0 +1,20 @@
+<h2>Insert your balance:</h2>
+<%= form_with model: @user, url:  user_card1s_path, method: :post do |f| %>
+
+  
+  <p>
+    <%= f.label :amount %><br>
+    <%= f.number_field :amount %>
+  </p>
+
+
+
+
+
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+

@@ -1,0 +1,72 @@
+<body>
+<center><h1><span class="badge bg-secondary">Welcome to canteen </span></h1>
+</center> <br>
+
+<% if user_signed_in? %>
+
+<% if current_user.has_role? :admin %>
+
+  <p> logged in as admin </p>
+
+<%= link_to "Insert Food",    new_user_menu_path(current_user) %> <br>
+
+
+<%#= button_to 'Delete item',  user_menu_path(current_user.id,id: menu.id), method: :delete %> <br>
+
+
+
+
+<% end %>
+
+<% if current_user.card1.present? %>
+
+<h1 class="display-5"><span class="badge bg-black"><%= link_to "All Menu Items",    user_menus_path(current_user) %> <br> </span> </h1>
+
+
+<br> <br>
+
+
+ <button type="button" class="btn btn-dark"> <%= button_to "Check Balance of card", user_card1s_path(current_user), method: :get %> </button> <br> <br>
+<%# debugger %>
+
+<button type="button" class="btn btn-dark"><%= button_to "Update card", edit_user_card1_path(current_user,current_user.card1.id), method: :get %> </button> <br> <br>
+
+<h5>
+<%= button_to "Logout", destroy_user_session_path, method: :delete  %> <br> <br>
+</h5>
+
+
+
+
+<% else %>
+
+<h1 class="display-5"><span class="badge bg-black"><%= link_to "All Menu Items",    user_menus_path(current_user) %> <br> </span> </h1>
+
+
+
+<%#= link_to "Logout", destroy_user_session_path, method: :delete  %> <br> <br>
+
+<h1 class="display-5"><span class="badge bg-black"><%= link_to "Create pass", new_user_card1_path(current_user)  %> </span> </h1> <br> <br>
+
+<h1 class="display-5"><span class="badge bg-black"><%= link_to "Show Pass", user_card1s_path(current_user) %> <br> <br> </span> </h1>
+
+
+<h5>
+<%= button_to "Logout", destroy_user_session_path, method: :delete  %> <br> <br>
+</h5>
+
+
+
+
+
+
+<%#= link_to "Logout", destroy_user_session_path, method: :delete  %> <br> <br>
+
+<%#= link_to "Create pass", new_user_card1_path(current_user)  %> <br> <br>
+
+<% end %>
+
+<% end %>
+</body>
+
+

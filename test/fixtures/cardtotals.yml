@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  final_amount: MyString
+  user: one
+  card1: one
+  menu: one
+  cart1: one
+
+two:
+  final_amount: MyString
+  user: two
+  card1: two
+  menu: two
+  cart1: two

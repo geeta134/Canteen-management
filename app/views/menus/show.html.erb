@@ -1,0 +1,26 @@
+<h1>All Menu Items</h1>
+
+<ul>
+  <% @menus.each do |menu| %>
+    <li>
+      <%#= post.id %>
+      <%= menu.food_name %>
+      <%= menu.price %> <br>
+      <%# debugger %>
+      <% if current_user.has_role? :has_card %>
+
+      <%= link_to "Place Order With Card",     new_user_menu_payment_path(current_user,menu_id: menu.id) %> <br>
+
+      <%#= link_to "Place Order",    new_user_menu_order_path(current_user,menu_id: menu.id) %> <br>
+      <%# debugger %>
+
+      <% else %>
+
+
+    
+
+      <% end %>
+
+      <% end %>
+
+
