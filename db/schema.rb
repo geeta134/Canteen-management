@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_28_055824) do
+ActiveRecord::Schema.define(version: 2022_10_28_061453) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -46,20 +46,6 @@ ActiveRecord::Schema.define(version: 2022_10_28_055824) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_card1s_on_user_id"
-  end
-
-  create_table "cards", force: :cascade do |t|
-    t.integer "card_amount"
-    t.integer "total_amount"
-    t.integer "user_id", null: false
-    t.integer "menu_id", null: false
-    t.integer "order_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.integer "quantity"
-    t.index ["menu_id"], name: "index_cards_on_menu_id"
-    t.index ["order_id"], name: "index_cards_on_order_id"
-    t.index ["user_id"], name: "index_cards_on_user_id"
   end
 
   create_table "cardtotals", force: :cascade do |t|
@@ -175,9 +161,6 @@ ActiveRecord::Schema.define(version: 2022_10_28_055824) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "card1s", "users"
-  add_foreign_key "cards", "menus"
-  add_foreign_key "cards", "orders"
-  add_foreign_key "cards", "users"
   add_foreign_key "cardtotals", "card1s"
   add_foreign_key "cardtotals", "cart1s"
   add_foreign_key "cardtotals", "menus"
