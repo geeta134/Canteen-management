@@ -1,0 +1,26 @@
+<%= form_with model: @menu, url:   user_menu_path(@menu), method: :patch do |f| %>
+
+<p>
+    <%= f.label :food_name %><br>
+    <%= f.text_field :food_name %>
+  </p>
+
+
+  <p>
+    <%= f.label :price %><br>
+    <%= f.number_field :price %>
+  </p>
+
+
+  <p>
+  <%= f.label :main_image %>
+  <%= f.file_field :main_image %>
+ </p>
+
+
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+

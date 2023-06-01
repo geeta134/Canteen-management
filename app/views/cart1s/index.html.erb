@@ -2,57 +2,54 @@
 </center> <br>
 
 <ul>
+  <%= form_with model: @cart1, url: user_card1_menu_cart1s_path(current_user,current_user.card1.id), method: :post do |f| %>
+       
+  
+  <p>
+    Enter Quantity: <%= f.number_field :quantity %>
+    <%= f.submit %>
+  </p>
+
+  <% end %>
   <% $sum = 0 %>
   <% @cart1s.each do |cart1| %>
     <li>
       <%#= cart1.id %>
       Order Name: <%= cart1.menu.food_name %> <br>
       Order Price: <%= cart1.menu.price %> <br>
-      Quantity: <%= cart1.quantity %> <br>
-
+      <%= image_tag cart1.menu.main_image, width: 550  if cart1.menu.main_image.attached? %>
+         <br> <br>
       
-      <%#= button_to "Remove from cart",      user_card1_menu_cart1_path(current_user,current_user.card1.id,id: cart1.id), method: :delete %>
+      <!-- <%#= form_with model: @cart1, url: user_card1_menu_cart1s_path(current_user,current_user.card1.id), method: :post do |f| %>
+       
+  
+  <p>
+    Enter Quantity: <%#= f.number_field :quantity %>
+    <%#= f.submit %>
+  </p>
+
+  <%# end %> -->
+
+  Quantity: <%= cart1.quantity %>
+  <br> <br>
+
+  <button type="button" class="btn btn-danger"><%= link_to "Edit Quantity",    edit_user_card1_menu_cart1_path(current_user,current_user.card1.id,cart1.menu.id,cart1.id) %> <br> </button>
+
+  <button type="button" class="btn btn-danger"><%= button_to "Remove Item from cart",      user_card1_menu_cart1_path(current_user,current_user.card1.id,id: cart1.id), method: :delete %> </button> <br> 
 
 
 
-
-       <%#= link_to "Place Order with card",    user_menu_cart1s_path(current_user,menu_id: menu.id) %>
-
-
-       <%# debugger %>
-
-        <%#= link_to "Place Order",    user_menu_users_id_menus_id_cart1s_path(current_user,cart1.menu.id,cart1.id) %>
+  <br>
 
         This Order Amount: <%= cart1.total %> <br> <br>
-
-        <button type="button" class="btn btn-danger"><%= button_to "Remove from cart",      user_card1_menu_cart1_path(current_user,current_user.card1.id,id: cart1.id), method: :delete %> </button> <br>
-
-
-
-     <br>
-      
 
       <% $sum = $sum + cart1.total.to_i %>
 
       <% end %> <br>
 
 
+
      <button type="button" class="btn btn-danger">Total payment: <%= $sum %> <br> </button> <br> <br>
 
 
-
-
-     <%#debugger %>
-
-
      <span class="badge bg-black"><%= button_to "Place Order with card",       user_card1_menu_cart1_cardtotals_path(current_user,current_user.card1.id,cart1_id: @cart1s), method: :post %> </span>
-     
-     <%#= button_to "Place Order with card",    user_card1_menu_cart1_cardtotal_path(@cart1s ), method: :post %>
-
-
-
-
-
-      <%#debugger %>
-
-      <%#= link_to "Place Order",    new_cart1_totalpayment_path() %>

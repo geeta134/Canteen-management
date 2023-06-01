@@ -17,6 +17,7 @@ class MenusController < ApplicationController
     @menu.food_name = params[:food_name]
     @menu.price = params[:price]
     @menu.main_image = params[:main_image]
+    @menu.counter = params[:counter]
     
     @menu.save
    #@user = User.find(params[:user_id])
@@ -25,8 +26,22 @@ class MenusController < ApplicationController
    end
 
    def show
+   	#debugger
    	@user = User.find(params[:user_id])
-   	@card1 = Card1.find(params[:card1_id]) 
+   	#@card1 = Card1.find(params[:card1_id]) 
+    @menu = Menu.find(params[:id])
+   end
+
+   def edit
+   	#debugger
+   	@menu = Menu.find(params[:id])
+   end
+
+   def update
+   	#debugger
+   	@menu = Menu.find(params[:id])
+    @menu.update(food_name:params[:menu][:food_name], price:params[:menu][:price], main_image:params[:menu][:main_image])
+    redirect_to  user_menus_path
    end
 
    def destroy

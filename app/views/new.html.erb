@@ -1,0 +1,15 @@
+<h2>Add your order details:</h2>
+<%= form_with model: @user, url:   user_menu_payments_path, method: :post do |f| %>
+
+  
+  <p>
+    <%= f.label :quantity %><br>
+    <%= f.number_field :quantity %>
+  </p>
+
+
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

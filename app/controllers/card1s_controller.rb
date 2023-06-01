@@ -35,7 +35,6 @@ class Card1sController < ApplicationController
 
 private
 	def card1_params
-		#debugger
       params.permit(params[:user_id], :amount)
     end
 end

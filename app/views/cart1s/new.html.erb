@@ -1,13 +1,10 @@
-<%# debugger %>
-<%= form_with model: @user, url: user_menu_cart1s_path, method: :post do |f| %>
+<%#debugger %>
+<%= form_with model: @cart1, url: user_card1_menu_cart1s_path(current_user,current_user.card1.id), method: :post do |f| %>
 
   
   <p>
-    <%= f.label :quantity %><br>
-    <%= f.number_field :quantity %>
+    Enter Quantity: <%= f.number_field :quantity %>
   </p>
-
-
 
   <p>
     <%= f.submit %>

@@ -1,0 +1,12 @@
+<h1>Thanx for ordering</h1>
+<h2>Your Card Amount </h2>
+
+<ul>
+  <% @payments.each do |payment| %>
+    <li>
+      <%#= post.id %>
+      <%= payment.total_amount %>
+
+      
+
+      <% end %>

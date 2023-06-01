@@ -10,7 +10,6 @@ Rails.application.routes.draw do
              resources :menus do
                 resources :cart1s do
                   resources :cardtotals
-                #resources :payments
               end
          end
        end
@@ -35,27 +34,14 @@ Rails.application.routes.draw do
 
               #post "users/id/menus/id/cart1s", to: "totalpayments#create"
 
+               get "/menus/:id", to: "menus#show"
+
 end
              
           
-end            
-                #resources :users do
-                  #resources :card1s
-
-                #end
-
-              #get "user/id/card1", to: "card1s#new"
-
-              #post "users/id/card1s", to: "card1s#create"
-
-
-#delete "users/id/posts", to: "posts#destroy"
-
- 
-#get "users/id/menus", to: "orders#new"
-     
-
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+end      
+             post "checkouts/create", to: "checkouts#create"  
+                
 end
 
                   

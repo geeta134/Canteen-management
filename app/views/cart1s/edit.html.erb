@@ -1,0 +1,15 @@
+<%= form_with model: @cart1, url: user_card1_menu_cart1_path(current_user,current_user.card1.id), method: :patch do |f| %>
+
+  
+  <p>
+    Enter Quantity: <%= f.number_field :quantity %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+
+
+
